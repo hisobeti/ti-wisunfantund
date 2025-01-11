@@ -71,3 +71,292 @@ img {
 *::-webkit-scrollbar-thumb:hover {
   background-color: var(--thumb_bg_hover);
 }
+
+.test-page {
+  padding: 20px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: black;
+}
+
+.test-selector {
+  margin-bottom: 20px;
+}
+
+.test-selector h2 {
+  color: black;
+}
+
+.test-select {
+  width: 300px;
+  color: black;
+}
+
+.test-description {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: var(--bg1);
+  border-radius: 4px;
+  color: black;
+}
+
+.test-window {
+  background-color: var(--bg1);
+  padding: 20px;
+  border-radius: 4px;
+  min-height: 400px;
+  color: black;
+  width: 100%;
+}
+
+.test-window h2 {
+  color: black;
+}
+
+.test-content {
+  margin-top: 20px;
+  color: black;
+}
+
+/* If needed, add any test-specific styles here */
+
+.ping-test-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 500;
+}
+
+.form-group input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.form-group input[type="range"] {
+  width: 100%;
+}
+
+.test-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.test-button.start {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.test-button.stop {
+  background-color: #f44336;
+  color: white;
+}
+
+.test-button.starting {
+  background-color: #FFA726;
+  color: white;
+  cursor: not-allowed;
+}
+
+.test-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.test-button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.test-time-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infinite-test-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.infinite-test-checkbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.infinite-test-checkbox label {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Style the disabled slider */
+.form-group input[type="range"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.debug-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.debug-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.device-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.device-ip {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 14px;
+  padding: 4px 8px;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+}
+
+.ping-stats-section {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 1200px;
+}
+
+.stats-table th {
+  background-color: #e9ecef;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.stats-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #dee2e6;
+  white-space: nowrap;
+}
+
+.stats-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.stats-table tr:hover {
+  background-color: #e9ecef;
+}
+
+.ip-cell {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.numeric-cell {
+  text-align: right;
+}
+
+.status-cell {
+  text-align: center;
+}
+
+.form-group input.error {
+  border-color: #f44336;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Add remaining time display */
+.test-time-remaining {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.countdown-timer {
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-group input[type="text"]:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.infinite-test-checkbox input[type="checkbox"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.infinite-test-checkbox input[type="checkbox"]:disabled + label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.download-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: #2196F3;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #1976D2;
+}

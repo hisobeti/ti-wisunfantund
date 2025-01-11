@@ -24,6 +24,7 @@ import {io} from 'socket.io-client';
 import {applyPatch, deepClone} from 'fast-json-patch';
 import {WritableDraft} from 'immer/dist/types/types-external';
 import {DashTitle} from './components/DashTitle';
+import TestPage from './components/TestPage';
 
 export function getIPAddressInfoByIP(ipAddressInfoArray: IPAddressInfo[], ip: string) {
   for (const ipAddressInfo of ipAddressInfoArray) {
@@ -103,6 +104,7 @@ enum TAB_VIEW {
   CONFIG = 'Config',
   CONNECT = 'Connect',
   INVALID_HOST = 'Invalid Host',
+  TEST = 'Test',
 }
 
 export interface AppState {
@@ -379,7 +381,6 @@ export class App extends React.Component<AppProps, AppState> {
         currentTab = <InvalidHostMessage />;
         break;
       case TAB_VIEW.MONITOR:
-      default:
         currentTab = (
           <MonitorTab
             ipSelectionHandler={this.ipSelectionHandler}
@@ -390,6 +391,12 @@ export class App extends React.Component<AppProps, AppState> {
             autoPing={this.state.autoPing}
           />
         );
+        break;
+      case TAB_VIEW.TEST:
+        currentTab = <TestPage />;
+        break;
+      default:
+        currentTab = <InvalidHostMessage />;
         break;
     }
     return (
@@ -411,6 +418,15 @@ export class App extends React.Component<AppProps, AppState> {
                 isSelected={this.state.tabView === TAB_VIEW.CONFIG}
                 selectTab={() => {
                   this.setTab(TAB_VIEW.CONFIG);
+                }}
+              />
+            )}
+            {this.state.connected && (
+              <TabSelector
+                name={TAB_VIEW.TEST}
+                isSelected={this.state.tabView === TAB_VIEW.TEST}
+                selectTab={() => {
+                  this.setTab(TAB_VIEW.TEST);
                 }}
               />
             )}

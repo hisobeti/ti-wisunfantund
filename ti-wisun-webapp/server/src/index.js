@@ -7,6 +7,7 @@ const http = require('http');
 const SocketIOServer = require('socket.io').Server;
 const {CONSTANTS, setAppConstants, assertDependencies} = require('./AppConstants.js');
 const {initializeSocketIOEvents} = require('./ClientState');
+const {pingDevice, validateInterface} = require('./pingtest');
 
 /**
  * This is the program entry and exit. From here all
@@ -25,6 +26,32 @@ function main() {
   const brManager = new BorderRouterManager();
   const pingExecutor = getPingExecutor();
   initializeRoutes(app, pingExecutor, brManager);
+
+  app.post('/api/ping', async (req, res) => {
+    const {interface, ipAddress} = req.body;
+    try {
+      const result = await pingDevice(interface, ipAddress);
+      res.json(result);
+    } catch (error) {
+      res.status(500).json({
+        success: false,
+        error: error.message,
+      });
+    }
+  });
+
+  app.post('/api/validate-interface', async (req, res) => {
+    const {interface: interfaceName} = req.body;
+    try {
+      const isValid = await validateInterface(interfaceName);
+      res.json({isValid});
+    } catch (error) {
+      res.status(500).json({
+        isValid: false,
+        error: error.message,
+      });
+    }
+  });
 
   httpServer.listen(CONSTANTS.PORT, CONSTANTS.HOST, () => {
     httpLogger.info(`Listening on http://${CONSTANTS.HOST}:${CONSTANTS.PORT}`);
